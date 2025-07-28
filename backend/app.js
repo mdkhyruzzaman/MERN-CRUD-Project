@@ -1,9 +1,8 @@
 // backend/app.js
 // Import necessary modules
-import bodyParser from "body-parser";
 import express from "express";
+import bodyParser from "body-parser";
 import router from "./src/routers/api.js";
-const app = express();
 
 // Import security middleware
 import cors from "cors";
@@ -11,12 +10,17 @@ import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import hpp from "hpp";
 
+const app = express();
+
 // Scurity middleware implimentation
 app.use(cors());
 app.use(helmet());
 app.use(hpp());
 
+// Body parser middleware
 app.use(bodyParser.json());
+
+// Rate limiting middleware
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
