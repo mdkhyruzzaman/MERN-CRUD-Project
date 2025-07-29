@@ -1,17 +1,14 @@
-import { BrowserRouter, Route } from "react-router";
+import { Outlet } from "react-router";
 import { Header } from "./componets/header/Header";
-import { Routes } from "react-router";
-import { Home } from "./pages/Home";
+import { Container } from "react-bootstrap";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/book-list" element={<Home />}></Route>
-        </Routes>
-      </BrowserRouter>
+      <Header />
+      <Container>
+        <Outlet />
+      </Container>
     </>
   );
 }

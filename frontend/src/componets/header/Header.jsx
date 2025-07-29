@@ -1,19 +1,18 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router";
+import { useNavigate } from "react-router";
 
 export function Header() {
+  const navigate = useNavigate();
   return (
     <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand>
-          <NavLink to="/">CRUD</NavLink>
-        </Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate("/")}>CRUD</Navbar.Brand>
         <Nav className="me-auto">
-          <Nav.Link>
-            {/* <NavLink to="/book-list">Book List</NavLink> */}
-          </Nav.Link>
+          <Nav.Link onClick={() => navigate("/book-list")}>Book List</Nav.Link>
         </Nav>
-        <Button type="submit">{/* <NavLink>Add</NavLink> */}</Button>
+        <Button type="submit" onClick={() => navigate("/create")}>
+          Add New
+        </Button>
       </Container>
     </Navbar>
   );
